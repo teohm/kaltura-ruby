@@ -4,15 +4,15 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "kaltura-ruby"
+    gem.name = "velir_kaltura-ruby"
     gem.summary = "Ruby gem for accessing the Kaltura API"
-    gem.email = "papyromancer@papyromancer.net"
-    gem.homepage = "http://github.com/papyromancer/kaltura-ruby"
-    gem.authors = ["papyromancer"]
+    gem.email = "patrick.robertson@velir.com"
+    gem.homepage = "http://github.com/Velir/kaltura-ruby"
+    gem.authors = ["Patrick Robertson"]
     gem.add_dependency('activesupport')
     gem.add_dependency('activeresource')
     gem.add_dependency('json')
-    gem.add_dependency('rest-client')
+    gem.add_dependency('rest-client', '>= 1.5.1')
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 
