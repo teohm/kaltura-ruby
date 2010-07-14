@@ -213,14 +213,6 @@ module Kaltura
 		end
 	end
 	
-	class KalturaServiceBase
-		attr_accessor :client
-		
-		def initialize(client)
-			@client = client
-		end
-	end
-
 	class KalturaConfiguration
 		attr_accessor :logger
 		attr_accessor :service_url

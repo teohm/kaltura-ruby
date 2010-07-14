@@ -2,7 +2,16 @@
 
 module Kaltura
   module Service
-    class AccessControlService < KalturaServiceBase
+    
+  	class BaseService
+  		attr_accessor :client
+
+  		def initialize(client)
+  			@client = client
+  		end
+  	end #class BaseService
+  	    
+    class AccessControlService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -60,7 +69,7 @@ module Kaltura
   		end
   	end #class AccessControlService
   	
-  	class AdminUserService < KalturaServiceBase
+  	class AdminUserService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -100,7 +109,7 @@ module Kaltura
   		end
   	end #class AdminUserService
   	
-  	class BaseEntryService < KalturaServiceBase
+  	class BaseEntryService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -288,7 +297,7 @@ module Kaltura
   		end
   	end #class BaseEntryService
   	
-  	class BulkUploadService < KalturaServiceBase
+  	class BulkUploadService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -325,7 +334,7 @@ module Kaltura
   		end
   	end #class BulkUploadService
   	
-  	class CategoryService < KalturaServiceBase
+  	class CategoryService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -382,7 +391,7 @@ module Kaltura
   		end
   	end #class CategoryService
   	
-  	class ConversionProfileService < KalturaServiceBase
+  	class ConversionProfileService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -440,7 +449,7 @@ module Kaltura
   		end 
   	end #class ConversionProfileService
   	
-  	class DataService < KalturaServiceBase
+  	class DataService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -500,7 +509,7 @@ module Kaltura
   	end #class DataService
   	
   	
-  	class EmailIngestionProfileService < KalturaServiceBase
+  	class EmailIngestionProfileService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -571,7 +580,7 @@ module Kaltura
   		end
   	end #class EmailIngestionProfileService
   	
-  	class FlavorAssetService < KalturaServiceBase
+  	class FlavorAssetService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -658,7 +667,7 @@ module Kaltura
   		end
   	end #class FlavorAssetService
   	  	
-  	class FlavorParamsService < KalturaServiceBase
+  	class FlavorParamsService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -726,7 +735,7 @@ module Kaltura
   		end
   	end #class FlavorParamsService
   	
-  	class LiveStreamService < KalturaServiceBase
+  	class LiveStreamService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -807,7 +816,7 @@ module Kaltura
   		end
   	end #class LiveStreamService
   	
-  	class MediaService < KalturaServiceBase
+  	class MediaService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -1040,7 +1049,7 @@ module Kaltura
   		end
   	end #class MediaService
   	
-  	class MixingService < KalturaServiceBase
+  	class MixingService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -1174,7 +1183,7 @@ module Kaltura
   		end
   	end #class MixingService
   	
-  	class NotificationService < KalturaServiceBase
+  	class NotificationService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -1191,7 +1200,7 @@ module Kaltura
   		end
   	end #class NotificationService
   	
-  	class PartnerService < KalturaServiceBase
+  	class PartnerService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -1252,7 +1261,7 @@ module Kaltura
   		end
   	end #class PartnerService
   	
-  	class PlaylistService < KalturaServiceBase
+  	class PlaylistService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -1361,7 +1370,7 @@ module Kaltura
   		end
   	end #class PlaylistService
   	
-  	class SearchService < KalturaServiceBase
+  	class SearchService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -1411,7 +1420,7 @@ module Kaltura
   		end
   	end #class SearchService
   	
-  	class SessionService < KalturaServiceBase
+  	class SessionService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -1443,7 +1452,7 @@ module Kaltura
   		end
   	end #class SessionService
   	
-  	class StatsService < KalturaServiceBase
+  	class StatsService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -1479,7 +1488,7 @@ module Kaltura
   		end
   	end #class StatsService
   	
-  	class SyndicationFeedService < KalturaServiceBase
+  	class SyndicationFeedService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -1557,7 +1566,7 @@ module Kaltura
   		end
   	end #class SyndicationFeedService
   	
-  	class KalturaSystemService < KalturaServiceBase
+  	class KalturaSystemService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -1572,7 +1581,7 @@ module Kaltura
   		end
   	end
 
-  	class UiConfService < KalturaServiceBase
+  	class UiConfService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -1651,7 +1660,7 @@ module Kaltura
   		end
   	end #class UiConfService
   	
-  	class UploadService < KalturaServiceBase
+  	class UploadService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -1677,7 +1686,7 @@ module Kaltura
   		end
   	end #class UploadService
   	
-  	class UserService < KalturaServiceBase
+  	class UserService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -1745,7 +1754,7 @@ module Kaltura
   		end
   	end #class UserService
   	
-  	class WidgetService < KalturaServiceBase
+  	class WidgetService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -1803,7 +1812,7 @@ module Kaltura
   		end
   	end #class WidgetService
   	
-  	class XInternalService < KalturaServiceBase
+  	class XInternalService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -1820,7 +1829,7 @@ module Kaltura
   		end
   	end #class XInternalService
   	
-  	class SystemUserService < KalturaServiceBase
+  	class SystemUserService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -1919,7 +1928,7 @@ module Kaltura
   		end
   	end #class SystemUserService
   	
-  	class SystemPartnerService < KalturaServiceBase
+  	class SystemPartnerService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -2009,7 +2018,7 @@ module Kaltura
   		end
   	end #class SystemPartnerService
   	
-  	class FileSyncService < KalturaServiceBase
+  	class FileSyncService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -2026,7 +2035,7 @@ module Kaltura
   		end
   	end #class FileSyncService
   	
-  	class FlavorParamsOutputService < KalturaServiceBase
+  	class FlavorParamsOutputService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -2043,7 +2052,7 @@ module Kaltura
   		end
   	end #class FlavorParamsOutputService
   	
-  	class MediaInfoService < KalturaServiceBase
+  	class MediaInfoService < BaseService
   		def initialize(client)
   			super(client)
   		end
@@ -2060,7 +2069,7 @@ module Kaltura
   		end
   	end #class MediaInfoService
   	
-  	class EntryAdminService < KalturaServiceBase
+  	class EntryAdminService < BaseService
   		def initialize(client)
   			super(client)
   		end
