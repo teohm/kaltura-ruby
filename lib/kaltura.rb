@@ -1,6 +1,7 @@
 require 'kaltura/kaltura_client_base'
 require 'kaltura/kaltura_client'
 require 'kaltura/constants'
+require 'kaltura/service'
 require 'yaml'
 require 'rubygems'
 require 'json'

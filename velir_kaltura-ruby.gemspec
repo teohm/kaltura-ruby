@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{velir_kaltura-ruby}
-  s.version = "0.2.2"
+  s.version = "0.3.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Patrick Robertson"]
-  s.date = %q{2010-07-12}
+  s.date = %q{2010-07-14}
   s.email = %q{patrick.robertson@velir.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -23,7 +23,6 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "VERSION.yml",
-     "kaltura-ruby.gemspec",
      "lib/kaltura.rb",
      "lib/kaltura/constants.rb",
      "lib/kaltura/constants/access_control_order_by.rb",
@@ -79,11 +78,13 @@ Gem::Specification.new do |s|
      "lib/kaltura/constants/yahoo_syndication_feed.rb",
      "lib/kaltura/kaltura_client.rb",
      "lib/kaltura/kaltura_client_base.rb",
+     "lib/kaltura/service.rb",
      "test/kaltura-ruby_test.rb",
      "test/test.rb",
      "test/test_2.rb",
      "test/test_error.rb",
-     "test/test_helper.rb"
+     "test/test_helper.rb",
+     "velir_kaltura-ruby.gemspec"
   ]
   s.homepage = %q{http://github.com/Velir/kaltura-ruby}
   s.rdoc_options = ["--charset=UTF-8"]

@@ -1,0 +1,56 @@
+kaltura-ruby
+============================================
+
+A gem implementation of Kaltura's Ruby API client.  The kaltura-ruby library suffers from poor namespacing, file separation, and a bug preventing multipart POST requests to the Kaltura API.  This gem is a work in progress, and the interface may change between versions as this this library is one giant refactoring project.
+
+[Kaltura.org project page](http://www.kaltura.org/project/kcl_ruby)
+
+[Gem Documentation](http://rdoc.info/Velir/kaltura-ruby)
+
+Installation
+-------------
+    $ gem install velir_kaltura-ruby
+
+In a rails application:
+
+    # config/environment.rb
+    config.gem "velir_kaltura-ruby,:lib=>"kaltura"
+
+
+Usage
+-----
+
+    require 'yaml'
+    require 'kaltura'
+    
+    # These values may be retrieved from your KMC account
+    login_email = your_login_email
+    login_password = your_login_password
+    partner_id = your_partner_id
+    subpartner_id = your_subpartner_id
+    administrator_secret = your_administrator_secret
+    user_secret = your_user_secret
+    
+    config = Kaltura::KalturaConfiguration.new( partner_id )
+    client = Kaltura::KalturaClient.new( config )
+    session = client.session_service.start( admin_secret, '', Kaltura::Constants::SessionType::ADMIN )
+    client.ks = session
+    
+    filter = KalturaFilter.new
+    pager = KalturaFilterPager.new
+    
+    media = client.media_service.list(filter, pager)
+    puts "\nmedia:"
+    puts media.to_yaml
+    
+    #video = File.open("/home/papyromancer/ovb.ogv")
+    #client.media_service.upload(video)
+
+Copyright
+---------
+
+The original Ruby client library for Kaltura may be found at [http://www.kaltura.org/project/kcl_ruby](http://www.kaltura.org/project/kcl_ruby) .  This implementation of the library as a gem attempts to track the Kaltura svn as closely as possible while adding relevant documentation.
+
+This library is released in compliance with the GNU Affero General Public License.
+
+Copyright (c) 2006-2010 Kaltura Inc.  See LICENSE for details.
