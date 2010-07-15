@@ -1,14 +1,14 @@
-kaltura-ruby
-============================================
+= kaltura-ruby
+
 
 A gem implementation of Kaltura's Ruby API client.  The kaltura-ruby library suffers from poor namespacing, file separation, and a bug preventing multipart POST requests to the Kaltura API.  This gem is a work in progress, and the interface may change between versions as this this library is one giant refactoring project.
 
-[Kaltura.org project page](http://www.kaltura.org/project/kcl_ruby)
+Project Page - http://www.kaltura.org/project/kcl_ruby
 
-[Gem Documentation](http://rdoc.info/projects/Velir/kaltura-ruby)
+Gem Documentation - http://rdoc.info/projects/Velir/kaltura-ruby
 
-Installation
--------------
+= Installation
+
     $ gem install velir_kaltura-ruby
 
 In a rails application:
@@ -17,8 +17,7 @@ In a rails application:
     config.gem "velir_kaltura-ruby,:lib=>"kaltura"
 
 
-Usage
------
+= Usage
 
     require 'yaml'
     require 'kaltura'
@@ -46,10 +45,9 @@ Usage
     #video = File.open("/home/papyromancer/ovb.ogv")
     #client.media_service.upload(video)
 
-Copyright
----------
+== Copyright
 
-The original Ruby client library for Kaltura may be found at [http://www.kaltura.org/project/kcl_ruby](http://www.kaltura.org/project/kcl_ruby) .  This implementation of the library as a gem attempts to track the Kaltura svn as closely as possible while adding relevant documentation.
+The original Ruby client library for Kaltura may be found at http://www.kaltura.org/project/kcl_ruby .  This implementation of the library as a gem attempts to track the Kaltura svn as closely as possible while adding relevant documentation.
 
 This library is released in compliance with the GNU Affero General Public License.
 

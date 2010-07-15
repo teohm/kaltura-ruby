@@ -5,21 +5,23 @@
 
 Gem::Specification.new do |s|
   s.name = %q{velir_kaltura-ruby}
-  s.version = "0.3.3"
+  s.version = "0.3.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Patrick Robertson"]
-  s.date = %q{2010-07-14}
+  s.date = %q{2010-07-15}
   s.email = %q{patrick.robertson@velir.com}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.markdown"
+     "README.markdown",
+     "README.rdoc"
   ]
   s.files = [
     ".document",
      ".gitignore",
      "LICENSE",
      "README.markdown",
+     "README.rdoc",
      "Rakefile",
      "VERSION",
      "VERSION.yml",
@@ -76,8 +78,10 @@ Gem::Specification.new do |s|
      "lib/kaltura/constants/video_codec.rb",
      "lib/kaltura/constants/widget.rb",
      "lib/kaltura/constants/yahoo_syndication_feed.rb",
+     "lib/kaltura/filter.rb",
      "lib/kaltura/kaltura_client.rb",
      "lib/kaltura/kaltura_client_base.rb",
+     "lib/kaltura/response.rb",
      "lib/kaltura/service.rb",
      "test/kaltura-ruby_test.rb",
      "test/test.rb",
