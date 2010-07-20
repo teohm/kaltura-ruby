@@ -247,7 +247,7 @@ module Kaltura
 					object_type_element = xml_element.get_text('objectType')
 					if (object_type_element != nil)
 						object_class = xml_element.get_text('objectType').value
-						instance = Object.const_get(object_class).new
+						instance = KalturaClassFactory.set_instance(object_class)
 						xml_element.elements.each do | element |
 							value = KalturaClassFactory.object_from_xml(element)
 							instance.send(self.underscore(element.name) + "=", value);
@@ -264,6 +264,25 @@ module Kaltura
 		def self.underscore(val)
 			val.gsub(/(.)([A-Z])/,'\1_\2').downcase
 		end
+		
+		def self.set_instance(object_request_class)
+		  string_object_class = object_request_class.to_s
+		  instance = nil
+		  unless KalturaClassFactory.request_is_response?(string_object_class)
+		    stripped_request = KalturaClassFactory.strip_kaltura_from_request(string_object_class)
+		    instance = Module.const_get("Response").const_get(stripped_request).new
+	    else
+	      instance = Object.const_get(object_request_class).new
+      end		  
+      instance
+	  end
+	  
+	  def self.strip_kaltura_from_request(request)
+	    request.gsub("Kaltura","")
+    end
+	  def self.request_is_response?(request)
+	    request == request.split("Response",0).to_s
+    end
 	end
 	
 	class KalturaAPIError < RuntimeError
