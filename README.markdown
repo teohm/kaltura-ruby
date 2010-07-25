@@ -14,7 +14,7 @@ Installation
 In a rails application:
 
     # config/environment.rb
-    config.gem "velir_kaltura-ruby,:lib=>"kaltura"
+    config.gem "velir_kaltura-ruby",:lib=>"kaltura"
 
 
 Usage
