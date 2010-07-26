@@ -1,5 +1,5 @@
 module Kaltura
-	class KalturaClientBase
+	class ClientBase
 		attr_accessor 	:config
 		attr_accessor 	:ks
 		attr_reader 	:is_multirequest
@@ -22,7 +22,7 @@ module Kaltura
 			
 			add_param(params, 'ks', @ks);
 			
-			call = KalturaServiceActionCall.new(service, action, params);
+			call = ServiceActionCall.new(service, action, params);
 			@calls_queue.push(call);
 		end
 	
@@ -88,7 +88,7 @@ module Kaltura
 			doc = REXML::Document.new(xml)
 			raise_exception_if_error(doc)
 			doc.elements.each('xml/result') do | element |
-				return KalturaClassFactory.object_from_xml(element)
+				return ClassFactory.object_from_xml(element)
 			end
 		end
 		
@@ -96,7 +96,7 @@ module Kaltura
       if is_error(doc)
         code = doc.elements["xml/result/error/code"].text
         message = doc.elements["xml/result/error/message"].text
-        raise KalturaAPIError.new(code,message)
+        raise APIError.new(code,message)
       end
     end
     
@@ -148,7 +148,7 @@ module Kaltura
 		end
 	end
 	
-	class KalturaServiceActionCall
+	class ServiceActionCall
 		attr_accessor :service
 		attr_accessor :action
 		attr_accessor :params
@@ -182,7 +182,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaObjectBase
+	class ObjectBase
 		attr_accessor :object_type
 		
 		def to_params
@@ -213,7 +213,7 @@ module Kaltura
 		end
 	end
 	
-	class KalturaConfiguration
+	class Configuration
 		attr_accessor :logger
 		attr_accessor :service_url
 		attr_accessor :format
@@ -234,22 +234,22 @@ module Kaltura
 		end
 	end
 	
-	class KalturaClassFactory
+	class ClassFactory
 		def self.object_from_xml(xml_element)
 			instance = nil
 	        if xml_element.elements.size > 0
 				if xml_element.elements[1].name == 'item' # array	
 					instance = []
 					xml_element.elements.each('item') do | element |
-						instance.push(KalturaClassFactory.object_from_xml(element))
+						instance.push(ClassFactory.object_from_xml(element))
 					end
 				else # object
 					object_type_element = xml_element.get_text('objectType')
 					if (object_type_element != nil)
 						object_class = xml_element.get_text('objectType').value
-						instance = KalturaClassFactory.set_instance(object_class)
+						instance = ClassFactory.set_instance(object_class)
 						xml_element.elements.each do | element |
-							value = KalturaClassFactory.object_from_xml(element)
+							value = ClassFactory.object_from_xml(element)
 							instance.send(self.underscore(element.name) + "=", value);
 						end
 					end
@@ -268,11 +268,11 @@ module Kaltura
 		def self.set_instance(object_request_class)
 		  string_object_class = object_request_class.to_s
 		  instance = nil
-		  unless KalturaClassFactory.request_is_response?(string_object_class)
-		    stripped_request = KalturaClassFactory.strip_kaltura_from_request(string_object_class)
+		  stripped_request = ClassFactory.strip_kaltura_from_request(string_object_class)
+		  unless ClassFactory.request_is_response?(string_object_class)
 		    instance = Module.const_get("Response").const_get(stripped_request).new
 	    else
-	      instance = Object.const_get(object_request_class).new
+	      instance = Object.const_get(stripped_request).new
       end		  
       instance
 	  end
@@ -285,7 +285,7 @@ module Kaltura
     end
 	end
 	
-	class KalturaAPIError < RuntimeError
+	class APIError < RuntimeError
 	  attr_reader :code
 	  attr_reader :message
 	  

@@ -1,6 +1,6 @@
 module Kaltura
   module Filter
-    class ReportInputFilter < KalturaObjectBase
+    class ReportInputFilter < ObjectBase
   		attr_accessor :from_date
   		attr_accessor :to_date
   		attr_accessor :keywords

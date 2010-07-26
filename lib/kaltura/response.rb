@@ -1,7 +1,7 @@
 module Kaltura
   module Response
     
-    class BaseResponse < KalturaObjectBase
+    class BaseResponse < ObjectBase
       attr_accessor :objects
       attr_accessor :total_count
       
@@ -46,7 +46,7 @@ module Kaltura
   	class PlaylistListResponse < BaseResponse
   	end
   	
-  	class SearchResultResponse < KalturaObjectBase
+  	class SearchResultResponse < ObjectBase
   		attr_accessor :objects
   		attr_accessor :need_media_info
 
@@ -55,7 +55,7 @@ module Kaltura
   		end
   	end
   	
-  	class StartWidgetSessionResponse < KalturaObjectBase
+  	class StartWidgetSessionResponse < ObjectBase
   		attr_accessor :partner_id
   		attr_accessor :ks
   		attr_accessor :user_id
@@ -71,7 +71,7 @@ module Kaltura
   	class UiConfListResponse < BaseResponse
   	end
 
-  	class UploadResponse < KalturaObjectBase
+  	class UploadResponse < ObjectBase
   		attr_accessor :upload_token_id
   		attr_accessor :file_size
   		attr_accessor :error_code

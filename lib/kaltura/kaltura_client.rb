@@ -1,11 +1,11 @@
 
 module Kaltura
 
-	class KalturaBaseRestriction < KalturaObjectBase
+	class BaseRestriction < ObjectBase
 
 	end
 
-	class KalturaAccessControl < KalturaObjectBase
+	class AccessControl < ObjectBase
 		attr_accessor :id
 		attr_accessor :partner_id
 		attr_accessor :name
@@ -29,7 +29,7 @@ module Kaltura
 	end
 
 
-	class KalturaFilterPager < KalturaObjectBase
+	class FilterPager < ObjectBase
 		attr_accessor :page_size
 		attr_accessor :page_index
 
@@ -41,14 +41,14 @@ module Kaltura
 		end
 	end
 
-	class KalturaAdminUser < KalturaObjectBase
+	class AdminUser < ObjectBase
 		attr_accessor :password
 		attr_accessor :email
 		attr_accessor :screen_name
 
 	end
 
-	class KalturaBaseEntry < KalturaObjectBase
+	class BaseEntry < ObjectBase
 		attr_accessor :id
 		attr_accessor :name
 		attr_accessor :description
@@ -123,7 +123,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaModerationFlag < KalturaObjectBase
+	class ModerationFlag < ObjectBase
 		attr_accessor :id
 		attr_accessor :partner_id
 		attr_accessor :user_id
@@ -159,12 +159,12 @@ module Kaltura
 		end
 	end
 
-	class KalturaEntryContextDataParams < KalturaObjectBase
+	class EntryContextDataParams < ObjectBase
 		attr_accessor :referrer
 
 	end
 
-	class KalturaEntryContextDataResult < KalturaObjectBase
+	class EntryContextDataResult < ObjectBase
 		attr_accessor :is_site_restricted
 		attr_accessor :is_country_restricted
 		attr_accessor :is_session_restricted
@@ -192,7 +192,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaBulkUploadResult < KalturaObjectBase
+	class BulkUploadResult < ObjectBase
 		attr_accessor :id
 		attr_accessor :bulk_upload_job_id
 		attr_accessor :line_index
@@ -247,7 +247,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaBulkUpload < KalturaObjectBase
+	class BulkUpload < ObjectBase
 		attr_accessor :id
 		attr_accessor :uploaded_by
 		attr_accessor :uploaded_on
@@ -271,7 +271,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaCategory < KalturaObjectBase
+	class Category < ObjectBase
 		attr_accessor :id
 		attr_accessor :parent_id
 		attr_accessor :depth
@@ -301,7 +301,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaCropDimensions < KalturaObjectBase
+	class CropDimensions < ObjectBase
 		attr_accessor :left
 		attr_accessor :top
 		attr_accessor :width
@@ -321,7 +321,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaConversionProfile < KalturaObjectBase
+	class ConversionProfile < ObjectBase
 		attr_accessor :id
 		attr_accessor :partner_id
 		attr_accessor :name
@@ -353,12 +353,12 @@ module Kaltura
 		end
 	end
 
-	class KalturaDataEntry < KalturaBaseEntry
+	class DataEntry < BaseEntry
 		attr_accessor :data_content
 
 	end
 
-	class KalturaEmailIngestionProfile < KalturaObjectBase
+	class EmailIngestionProfile < ObjectBase
 		attr_accessor :id
 		attr_accessor :name
 		attr_accessor :description
@@ -391,7 +391,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaPlayableEntry < KalturaBaseEntry
+	class PlayableEntry < BaseEntry
 		attr_accessor :plays
 		attr_accessor :views
 		attr_accessor :width
@@ -420,7 +420,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaMediaEntry < KalturaPlayableEntry
+	class MediaEntry < PlayableEntry
 		attr_accessor :media_type
 		attr_accessor :conversion_quality
 		attr_accessor :source_type
@@ -446,7 +446,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaFlavorAsset < KalturaObjectBase
+	class FlavorAsset < ObjectBase
 		attr_accessor :id
 		attr_accessor :entry_id
 		attr_accessor :partner_id
@@ -513,7 +513,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaFlavorParams < KalturaObjectBase
+	class FlavorParams < ObjectBase
 		attr_accessor :id
 		attr_accessor :partner_id
 		attr_accessor :name
@@ -577,14 +577,14 @@ module Kaltura
 		end
 	end
 
-	class KalturaFlavorAssetWithParams < KalturaObjectBase
+	class FlavorAssetWithParams < ObjectBase
 		attr_accessor :flavor_asset
 		attr_accessor :flavor_params
 		attr_accessor :entry_id
 
 	end
 
-	class KalturaLiveStreamBitrate < KalturaObjectBase
+	class LiveStreamBitrate < ObjectBase
 		attr_accessor :bitrate
 		attr_accessor :width
 		attr_accessor :height
@@ -600,7 +600,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaLiveStreamEntry < KalturaMediaEntry
+	class LiveStreamEntry < MediaEntry
 		attr_accessor :offline_message
 		attr_accessor :stream_remote_id
 		attr_accessor :stream_remote_backup_id
@@ -608,7 +608,7 @@ module Kaltura
 
 	end
 
-	class KalturaLiveStreamAdminEntry < KalturaLiveStreamEntry
+	class LiveStreamAdminEntry < LiveStreamEntry
 		attr_accessor :encoding_ip1
 		attr_accessor :encoding_ip2
 		attr_accessor :stream_password
@@ -616,7 +616,7 @@ module Kaltura
 
 	end
 
-	class KalturaSearch < KalturaObjectBase
+	class Search < ObjectBase
 		attr_accessor :key_words
 		attr_accessor :search_source
 		attr_accessor :media_type
@@ -631,7 +631,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaSearchResult < KalturaSearch
+	class SearchResult < Search
 		attr_accessor :id
 		attr_accessor :title
 		attr_accessor :thumb_url
@@ -648,7 +648,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaMixEntry < KalturaPlayableEntry
+	class MixEntry < PlayableEntry
 		attr_accessor :has_real_thumbnail
 		attr_accessor :editor_type
 		attr_accessor :data_content
@@ -661,13 +661,13 @@ module Kaltura
 		end
 	end
 
-	class KalturaClientNotification < KalturaObjectBase
+	class ClientNotification < ObjectBase
 		attr_accessor :url
 		attr_accessor :data
 
 	end
 
-	class KalturaPartner < KalturaObjectBase
+	class Partner < ObjectBase
 		attr_accessor :id
 		attr_accessor :name
 		attr_accessor :website
@@ -733,7 +733,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaPartnerUsage < KalturaObjectBase
+	class PartnerUsage < ObjectBase
 		attr_accessor :hosting_gb
 		attr_accessor :percent
 		attr_accessor :package_bw
@@ -758,7 +758,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaPlaylist < KalturaBaseEntry
+	class Playlist < BaseEntry
 		attr_accessor :playlist_content
 		attr_accessor :filters
 		attr_accessor :total_results
@@ -784,19 +784,19 @@ module Kaltura
 		end
 	end
 
-	class KalturaReportGraph < KalturaObjectBase
+	class ReportGraph < ObjectBase
 		attr_accessor :id
 		attr_accessor :data
 
 	end
 
-	class KalturaReportTotal < KalturaObjectBase
+	class ReportTotal < ObjectBase
 		attr_accessor :header
 		attr_accessor :data
 
 	end
 
-	class KalturaReportTable < KalturaObjectBase
+	class ReportTable < ObjectBase
 		attr_accessor :header
 		attr_accessor :data
 		attr_accessor :total_count
@@ -806,14 +806,14 @@ module Kaltura
 		end
 	end
 
-	class KalturaSearchAuthData < KalturaObjectBase
+	class SearchAuthData < ObjectBase
 		attr_accessor :auth_data
 		attr_accessor :login_url
 		attr_accessor :message
 
 	end
 
-	class KalturaStatsEvent < KalturaObjectBase
+	class StatsEvent < ObjectBase
 		attr_accessor :client_ver
 		attr_accessor :event_type
 		attr_accessor :event_timestamp
@@ -866,7 +866,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaStatsKmcEvent < KalturaObjectBase
+	class StatsKmcEvent < ObjectBase
 		attr_accessor :client_ver
 		attr_accessor :kmc_event_action_path
 		attr_accessor :kmc_event_type
@@ -893,7 +893,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaCEError < KalturaObjectBase
+	class CEError < ObjectBase
 		attr_accessor :id
 		attr_accessor :partner_id
 		attr_accessor :browser
@@ -910,7 +910,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaBaseSyndicationFeed < KalturaObjectBase
+	class BaseSyndicationFeed < ObjectBase
 		attr_accessor :id
 		attr_accessor :feed_url
 		attr_accessor :partner_id
@@ -956,7 +956,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaSyndicationFeedEntryCount < KalturaObjectBase
+	class SyndicationFeedEntryCount < ObjectBase
 		attr_accessor :total_entry_count
 		attr_accessor :actual_entry_count
 		attr_accessor :require_transcoding_count
@@ -972,7 +972,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaUiConf < KalturaObjectBase
+	class UiConf < ObjectBase
 		attr_accessor :id
 		attr_accessor :name
 		attr_accessor :description
@@ -1023,7 +1023,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaUser < KalturaObjectBase
+	class User < ObjectBase
 		attr_accessor :id
 		attr_accessor :partner_id
 		attr_accessor :screen_name
@@ -1073,7 +1073,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaWidget < KalturaObjectBase
+	class Widget < ObjectBase
 		attr_accessor :id
 		attr_accessor :source_widget_id
 		attr_accessor :root_widget_id
@@ -1107,7 +1107,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaSystemUser < KalturaObjectBase
+	class SystemUser < ObjectBase
 		attr_accessor :id
 		attr_accessor :email
 		attr_accessor :first_name
@@ -1140,7 +1140,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaSystemPartnerUsageItem < KalturaObjectBase
+	class SystemPartnerUsageItem < ObjectBase
 		attr_accessor :partner_id
 		attr_accessor :partner_name
 		attr_accessor :partner_status
@@ -1205,7 +1205,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaSystemPartnerConfiguration < KalturaObjectBase
+	class SystemPartnerConfiguration < ObjectBase
 		attr_accessor :host
 		attr_accessor :cdn_host
 		attr_accessor :max_bulk_size
@@ -1219,7 +1219,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaSystemPartnerPackage < KalturaObjectBase
+	class SystemPartnerPackage < ObjectBase
 		attr_accessor :id
 		attr_accessor :name
 
@@ -1228,7 +1228,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaFileSync < KalturaObjectBase
+	class FileSync < ObjectBase
 		attr_accessor :id
 		attr_accessor :partner_id
 		attr_accessor :object_type
@@ -1299,7 +1299,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaFlavorParamsOutput < KalturaFlavorParams
+	class FlavorParamsOutput < FlavorParams
 		attr_accessor :flavor_params_id
 		attr_accessor :command_lines_str
 		attr_accessor :flavor_params_version
@@ -1315,7 +1315,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaMediaInfo < KalturaObjectBase
+	class MediaInfo < ObjectBase
 		attr_accessor :id
 		attr_accessor :flavor_asset_id
 		attr_accessor :file_size
@@ -1401,7 +1401,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaCountryRestriction < KalturaBaseRestriction
+	class CountryRestriction < BaseRestriction
 		attr_accessor :country_restriction_type
 		attr_accessor :country_list
 
@@ -1410,7 +1410,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaDirectoryRestriction < KalturaBaseRestriction
+	class DirectoryRestriction < BaseRestriction
 		attr_accessor :directory_restriction_type
 
 		def directory_restriction_type=(val)
@@ -1418,11 +1418,11 @@ module Kaltura
 		end
 	end
 
-	class KalturaSessionRestriction < KalturaBaseRestriction
+	class SessionRestriction < BaseRestriction
 
 	end
 
-	class KalturaPreviewRestriction < KalturaSessionRestriction
+	class PreviewRestriction < SessionRestriction
 		attr_accessor :preview_length
 
 		def preview_length=(val)
@@ -1430,7 +1430,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaSiteRestriction < KalturaBaseRestriction
+	class SiteRestriction < BaseRestriction
 		attr_accessor :site_restriction_type
 		attr_accessor :site_list
 
@@ -1439,7 +1439,7 @@ module Kaltura
 		end
 	end
 
-	class KalturaDocumentEntry < KalturaBaseEntry
+	class DocumentEntry < BaseEntry
 		attr_accessor :document_type
 
 		def document_type=(val)
@@ -1447,12 +1447,12 @@ module Kaltura
 		end
 	end
 
-	class KalturaGoogleVideoSyndicationFeed < KalturaBaseSyndicationFeed
+	class GoogleVideoSyndicationFeed < BaseSyndicationFeed
 		attr_accessor :adult_content
 
 	end
 
-	class KalturaITunesSyndicationFeed < KalturaBaseSyndicationFeed
+	class ITunesSyndicationFeed < BaseSyndicationFeed
 		attr_accessor :feed_description
 		attr_accessor :language
 		attr_accessor :feed_landing_page
@@ -1465,12 +1465,12 @@ module Kaltura
 
 	end
 
-	class KalturaTubeMogulSyndicationFeed < KalturaBaseSyndicationFeed
+	class TubeMogulSyndicationFeed < BaseSyndicationFeed
 		attr_accessor :category
 
 	end
 
-	class KalturaYahooSyndicationFeed < KalturaBaseSyndicationFeed
+	class YahooSyndicationFeed < BaseSyndicationFeed
 		attr_accessor :category
 		attr_accessor :adult_content
 		attr_accessor :feed_description
@@ -1478,7 +1478,7 @@ module Kaltura
 
 	end
 
-    class KalturaClient < KalturaClientBase
+    class Client < ClientBase
 		attr_reader :access_control_service
 		def access_control_service
 			if (@access_control_service == nil)
@@ -1710,6 +1710,6 @@ module Kaltura
 			end
 			return @entry_admin_service
 		end
-  end
+  end #class KalturaClient
 
 end #module Kaltura
