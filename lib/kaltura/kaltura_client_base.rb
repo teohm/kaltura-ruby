@@ -127,7 +127,7 @@ module Kaltura
 				value.each do |sub_name, sub_value|
 					add_param(params, "#{name}:#{sub_name}", sub_value);
 				end
-			elsif value.is_a? KalturaObjectBase
+			elsif value.is_a? ObjectBase
 				add_param(params, name, value.to_params)
 			else
 				params[name] = value
@@ -269,10 +269,11 @@ module Kaltura
 		  string_object_class = object_request_class.to_s
 		  instance = nil
 		  stripped_request = ClassFactory.strip_kaltura_from_request(string_object_class)
+		  instance = Module.const_get("Kaltura")
 		  unless ClassFactory.request_is_response?(string_object_class)
-		    instance = Module.const_get("Response").const_get(stripped_request).new
+		    instance = instance.const_get("Response").const_get(stripped_request).new
 	    else
-	      instance = Object.const_get(stripped_request).new
+	      instance = instance.const_get(stripped_request).new
       end		  
       instance
 	  end

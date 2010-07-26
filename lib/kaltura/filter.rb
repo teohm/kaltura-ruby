@@ -21,7 +21,6 @@ require 'kaltura/filter/batch_job_filter'
 require 'kaltura/filter/control_panel_command_filter'
 require 'kaltura/filter/document_entry_filter'
 
-include Kaltura
 
 module Kaltura
   module Filter

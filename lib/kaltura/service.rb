@@ -30,8 +30,6 @@ require 'kaltura/service/x_internal_service'
 require 'kaltura/service/system_user_service'
 require 'kaltura/service/system_partner_service'
 
-include Kaltura
-
 module Kaltura
   module Service
           	  		  		  			  			  		  		  	  	  		  	
