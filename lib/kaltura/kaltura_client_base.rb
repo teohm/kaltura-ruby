@@ -193,7 +193,7 @@ module Kaltura
 				var = var.sub('@', '')
 				kvar = camelcase(var)
 				if (value != nil)
-					if (value.is_a? KalturaObjectBase)
+					if (value.is_a? ObjectBase)
 						params[kvar] = value.to_params;
 					else
 						params[kvar] = value;
