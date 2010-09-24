@@ -1,7 +1,25 @@
 module Kaltura
   module Service
+    ##
+    # BaseEntryService is a service for generic entries.  If you do not know what type of media you are working with,
+    # this is a good service to use.  You need to know what media type you are working with for MediaService.
+    #
+    # @example THIS IS SPARTA
+    #   SPARRRRRRRRRTAAAAAAAAA
+    ##
     class BaseEntryService < BaseService
-
+      
+      ##
+      # Generic add entry using an uploaded file, should be used when the uploaded entry type is not known.
+      #
+      # @param [Kaltura::BaseEntry] entry A newly instantiated BaseEntry object filled in with appropriate fields.
+      # @param [String] upload_token_id The upload token from the upload() method.
+      # @param [Kaltura::Constants::Entry::Type] type The type of entry.  This should be defaulted.  Otherwise use the MediaService.
+      #
+      # @return [Kaltura::BaseEntry] Returns a Kaltura Entry.  This is helpful to retrieve the entry_id.
+      #
+      # @raise [Kaltura::APIError]
+      ##
   		def add_from_uploaded_file(entry, upload_token_id, type=-1)
   			kparams = {}
   			client.add_param(kparams, 'entry', entry)
@@ -10,6 +28,9 @@ module Kaltura
   			perform_request('baseEntry','addFromUploadedFile',kparams,false)
   		end
 
+      ##
+      #
+      ##
   		def get(entry_id, version=-1)
   			kparams = {}
   			client.add_param(kparams, 'entryId', entry_id)
