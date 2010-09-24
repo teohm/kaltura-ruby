@@ -12,8 +12,8 @@ require 'net/http'
 require 'digest/md5'
 require 'rexml/document'
 
-#include Kaltura
-
+##
+# the Kaltura Module's sole function is to provide the top level namespace for the Kaltura API Library client.
+##
 module Kaltura
-
 end

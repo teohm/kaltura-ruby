@@ -31,10 +31,35 @@ require 'kaltura/service/system_user_service'
 require 'kaltura/service/system_partner_service'
 
 module Kaltura
+  ##
+  # The service module provides instance methods to the Kaltura::Client class.  This is the bulk of API actions.
+  ##
   module Service
-          	  		  		  			  			  		  		  	  	  		  	
+      
+    ##
+    # FileSyncService is a system user service.
+    #
+    # @example List up to 100 file sync objects with an error status:
+    #    client = Kaltura::Client.new
+    #    filter = Kaltura::Filter::FileSyncFilter.new
+    #    filter.status_equal = Kaltura::Constants::FileSync::Status::ERROR
+    #    pager = Kaltura::FilterPager.new
+    #    pager.page_size = 100
+    #    client.file_sync_service.list(filter,pager)
+    #
+    ##      	  		  		  			  			  		  		  	  	  		  	
   	class FileSyncService < BaseService
-
+      
+      ##
+      # Lists file sync objects by a filter and a pager.
+      #
+      # @param [Kaltura::Filter::FileSyncFilter] filter The filter to apply to the list.
+      # @param [Kaltura::FilterPager] pager The default pager to apply to large lists.
+      #
+      # @return [Kaltura::Response::FileSyncListResponse] FileSyncListResponse is equivalent to Kaltura::Response::BaseResponse
+      #
+      # @raise [Kaltura::APIError] raises default Kaltura errors.
+      ##
   		def list(filter=nil, pager=nil)
   			kparams = {}
   			client.add_param(kparams, 'filter', filter)
@@ -43,8 +68,22 @@ module Kaltura
   		end
   	end #class FileSyncService
   	
+  	##
+  	# FlavorParamsOutputService is not documented by Kaltura.  Probably best to not play with this.
+  	# This is likely just used internally by the KMC.
+  	##
   	class FlavorParamsOutputService < BaseService
 
+      ##
+      # Lists file sync objects by a filter and a pager.
+      #
+      # @param [Kaltura::Filter::FlavorParamsOutputFilter] filter The filter to apply to the list action.
+      # @param [Kaltura::FilterPager] pager The default pager to apply to large lists.
+      # 
+      # @return [Kaltura::Response::FlavorParamsOutputListResponse] This is equivalent to the BaseResponse class.
+      # 
+      # @raise [Kaltura::APIError] raises default Kaltura errors.
+      ##
   		def list(filter=nil, pager=nil)
   			kparams = {}
   			client.add_param(kparams, 'filter', filter)
@@ -53,8 +92,21 @@ module Kaltura
   		end
   	end #class FlavorParamsOutputService
   	
+  	##
+  	# MediaInfoService is not documented by Kaltura.  Probably best to not play with this.
+  	# This is likely just used internally by the KMC.
+  	##
   	class MediaInfoService < BaseService
-
+      ##
+      # Lists media info objects by a filter and a pager.
+      #
+      # @param [Kaltura::Filter::MediaInfoFilter] filter The filter to apply to the list action.
+      # @param [Kaltura::FilterPager] pager The default pager to apply to large lists.
+      #
+      # @return [Kaltura::Response::MediaInfoListResponse] This is equivalent to the BaseResponse class.
+      #
+      # @raise [Kaltura::APIError] raises default Kaltura errors.
+      ##
   		def list(filter=nil, pager=nil)
   			kparams = {}
   			client.add_param(kparams, 'filter', filter)
@@ -63,8 +115,22 @@ module Kaltura
   		end
   	end #class MediaInfoService
   	
+  	##
+  	# EntryAdminService is not documented by Kaltura.  Probably best not to play with this.
+  	# This is likely just used internally by the KMC.
+  	##
   	class EntryAdminService < BaseService
 
+      ##
+      # Gets an EntryAdmin object by entry_id.
+      #
+      # @param [String] entry_id Media entry id
+      # @param [Integer] version Desired version of the data.
+      #
+      # @return [Object] Not entirely sure what this returns.  
+      # 
+      # @raise [Kaltura::APIError] Raises default Kaltura errors.
+      ##
   		def get(entry_id, version=-1)
   			kparams = {}
   			client.add_param(kparams, 'entryId', entry_id)
