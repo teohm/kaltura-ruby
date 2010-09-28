@@ -539,6 +539,10 @@ module Kaltura
 		attr_accessor :conversion_engines
 		attr_accessor :conversion_engines_extra_params
 		attr_accessor :two_pass
+		attr_accessor :deinterlice
+		attr_accessor :rotate
+		attr_accessor :operators
+		attr_accessor :engine_version
 
 		def id=(val)
 			@id = val.to_i
@@ -579,6 +583,18 @@ module Kaltura
 		def two_pass=(val)
 			@two_pass = to_b(val)
 		end
+		def deinterlice=(val)
+		  @deinterlice = val.to_i
+	  end
+	  def rotate=(val)
+	    @rotate = val.to_i
+    end
+    def operators=(val)
+      @operators = val.to_s
+    end
+    def engine_version=(val)
+      @engine_version = val.to_i
+    end
 	end
 
 	class FlavorAssetWithParams < ObjectBase
