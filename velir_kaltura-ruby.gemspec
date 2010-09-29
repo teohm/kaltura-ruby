@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{velir_kaltura-ruby}
-  s.version = "0.4.4"
+  s.version = "0.4.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Patrick Robertson"]
-  s.date = %q{2010-09-28}
+  s.date = %q{2010-09-29}
   s.email = %q{patrick.robertson@velir.com}
   s.extra_rdoc_files = [
     "LICENSE",

@@ -634,6 +634,21 @@ module Kaltura
 		attr_accessor :stream_password
 		attr_accessor :stream_username
 
+    ##
+    # The camelcase method needed to be overriden for LiveStreamAdminEntry due
+    # to the fact that the encoding_ip fields do not fit the camel case setup.
+    ##
+    def camelcase(val)
+      case val
+        when 'encoding_ip1'
+          'encodingIP1'
+        when 'encoding_ip2'
+          'encodingIP2'
+      else
+        super(val)
+      end
+    end
+
 	end
 
 	class Search < ObjectBase
