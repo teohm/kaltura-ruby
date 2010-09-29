@@ -1,7 +1,19 @@
 module Kaltura
   module Service
+    
+    ##
+    # The live stream service lets you manage live stream channels.
+    ##
     class LiveStreamService < BaseService
-
+      
+      ##
+      # Adds a new live stream entry.
+      # The entry will be queued for provision.
+      #
+      # @param [Kaltura::LiveStreamAdminEntry] live_stream_entry The live stream entry metadata.
+      # media_type
+      # encodingIP1
+      ##
   		def add(live_stream_entry)
   			kparams = {}
   			client.add_param(kparams, 'liveStreamEntry', live_stream_entry)

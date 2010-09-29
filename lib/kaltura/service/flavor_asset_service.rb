@@ -4,6 +4,26 @@ module Kaltura
     ##
     # The Flavor Asset Service allows you to retrieve information and invoke actions on flavor assets.
     #
+    # @example Add a new flavor to a media entry:
+    #   client.flavor_asset_service.convert('1_qa32a3ax',22)
+    #
+    # @example Retrieve a flavor by flavor_id:
+    #   client.flavor_asset_service.get('0_as35a2r3a')
+    #
+    # @example Retrieve all flavors for a media entry:
+    #   client.flavor_asset_service.get_by_entry_id('1_qa32a3ax')
+    #      
+    # @example Retrieve all the web playable flavors for a media entry:
+    #   client.flavor_asset_service.get_web_playable_by_entry_id('1_qa32a3ax')
+    #
+    # @example Reconvert a specific Flavor:
+    #   client.flavor_asset_service.get('0_as35a2r3a')
+    #
+    # @example Delete a Flavor:
+    #   client.flavor_asset_service.delete('0_as35a2r3a')
+    #
+    # @example Retrieve a URL to download a specific flavor:
+    #   client.flavor_asset_service.get_download_url('0_as35a2r3a')
     #
     ##
     class FlavorAssetService < BaseService
