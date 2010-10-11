@@ -8,11 +8,20 @@ module Kaltura
       
       ##
       # Adds a new live stream entry.
-      # The entry will be queued for provision.
+      # The entry will be queued for provision.  Note, this uses a LiveStreamAdminEntry instead of a 
+      # normal LiveStreamEntry object.  LiveStreamAdminEntry is a child class, and adds a few fields
+      # pertinent to administering a Live stream.
       #
       # @param [Kaltura::LiveStreamAdminEntry] live_stream_entry The live stream entry metadata.
-      # media_type
-      # encodingIP1
+      #   In order to succesfully create a live stream entry you need to have the media_type,
+      #   encoding_ip1, and encoding_ip2 fields populated.
+      #
+      # @return [Kaltura::LiveStreamAdminEntry] Returns the live stream entry saved on the database.
+      #   It might be a good idea to save the ID field on return.
+      #
+      # @raise [Kaltura::APIError] Raises 'PROPERTY_VALIDATION_CANNOT_BE_NULL' if media_type, encoding_ip1, 
+      #   or encoding_ip2 are null.
+      #
       ##
   		def add(live_stream_entry)
   			kparams = {}
@@ -20,13 +29,33 @@ module Kaltura
   			perform_request('liveStream','add',kparams,false)
   		end
 
+      ##
+      # Retrieves a live stream entry by ID.
+      # The Kaltura API docs indicate that this action will return a LiveStreamEntry object, 
+      # but the reality is that it will return a LiveStreamAdminEntry object instead.
+      #
+      # @param [String] entry_id The live stream entry ID.
+      # @param [Integer] version The version of the entry.
+      #
+      # @return [Kaltura::LiveStreamAdminEntry] The requested live stream object.
+      #
+      # @raise [Kaltura::APIError] Raises 'ENTRY_ID_NOT_FOUND' if the entry doesn't exist.
+      ##
   		def get(entry_id, version=-1)
   			kparams = {}
   			client.add_param(kparams, 'entryId', entry_id)
   			client.add_param(kparams, 'version', version)
   			perform_request('liveStream','get',kparams,false)
   		end
-
+      
+      ##
+      # Updates a live stream entry object.  
+      # Like all of the other Kaltura API update actions it is best to instantiate a new LiveStreamAdminEntry object
+      # instead of pulling the existing one and updating its fields.
+      #
+      # @param [String] The 
+      #
+      ##
   		def update(entry_id, live_stream_entry)
   			kparams = {}
   			client.add_param(kparams, 'entryId', entry_id)

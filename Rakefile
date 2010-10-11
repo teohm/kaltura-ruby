@@ -10,8 +10,8 @@ begin
     gem.email = "patrick.robertson@velir.com"
     gem.homepage = "http://github.com/Velir/kaltura-ruby"
     gem.authors = ["Patrick Robertson"]
-    gem.add_dependency('activesupport', '<=2.3.8')
-    gem.add_dependency('activeresource','<=2.3.8')
+    gem.add_dependency('activesupport', '>=2.3.8')
+    gem.add_dependency('activeresource','>=2.3.8')
     gem.add_dependency('json')
     gem.add_dependency('rest-client', '>= 1.5.1')
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings

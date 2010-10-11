@@ -628,8 +628,16 @@ module Kaltura
 
 	end
 
+  ##
+  # The LiveStreamAdminEntry object is what the LiveStreamService utilizes to create streams.
+  #
+  # It is important to note that the fields media_type, and the encoding fields are necessary
+  # to create a LiveStream on the Kaltura server.
+  ##
 	class LiveStreamAdminEntry < LiveStreamEntry
+	  # This field is required to create a new LiveStream on the Kaltura server.
 		attr_accessor :encoding_ip1
+		# This field is required to create a new LiveStream on the Kaltura server.
 		attr_accessor :encoding_ip2
 		attr_accessor :stream_password
 		attr_accessor :stream_username
