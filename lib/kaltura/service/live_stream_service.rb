@@ -53,7 +53,12 @@ module Kaltura
       # Like all of the other Kaltura API update actions it is best to instantiate a new LiveStreamAdminEntry object
       # instead of pulling the existing one and updating its fields.
       #
-      # @param [String] The 
+      # @param [String] entry_id The live stream entry ID.
+      # @param [Kaltura::LiveStreamEntry] live_stream_entry A LiveStreamEntry object with the fields you wish to update populated.
+      #
+      # @return [Kaltura::LiveStreamEntry] Returns the entry_id with the updated fields.  It will also bump the version.
+      #
+      # @raise [Kaltura::APIError] Raises 'ENTRY_ID_NOT_FOUND' if the entry doesn't exist.
       #
       ##
   		def update(entry_id, live_stream_entry)
@@ -63,19 +68,49 @@ module Kaltura
   			perform_request('liveStream','update',kparams,false)
   		end
 
+      ##
+      # Deletes a live stream entry object.
+      #
+      # @param [String] entry_id The live stream entry ID.
+      #
+      # @return [nil] Returns nothing
+      #
+      # @raise [Kaltura::APIError] Raises 'ENTRY_ID_NOT_FOUND' if the entry doesn't exist.
+      ##
   		def delete(entry_id)
   			kparams = {}
   			client.add_param(kparams, 'entryId', entry_id)
   			perform_request('liveStream','delete',kparams,false)
   		end
-
+  		
+      ##
+      # Lists live streams by the filter with paging support for large sets of live streams.
+      #
+      # @param [Kaltura::Filter::LiveStreamEntryFilter] The live stream filter is a wrapper for Kaltura::Filter::MediaEntryFilter
+      # @param [Kaltura::FilterPager] The default Kaltura pager.
+      #
+      # @return [Kaltura::Response::LiveStreamListResponse] This is a wrapper for Kaltura::Response::BaseRespsone.
+      #
+      # @raise [Kaltura::APIError] Raises default Kaltura API errors.
+      ##
   		def list(filter=nil, pager=nil)
   			kparams = {}
   			client.add_param(kparams, 'filter', filter)
   			client.add_param(kparams, 'pager', pager)
   			perform_request('liveStream','list',kparams,false)
   		end
-
+  		
+  		##
+  		# Updates the live stream entries offline thumbnail using a raw jpgeg file.
+  		#
+  		# @param [String] entry_id The live stream entry ID.
+  		# @param [File] file_data The JPEG file to use as the stream is offline backdrop.
+  		#
+  		# @return [Kaltura::LiveStreamEntry] The live stream entry with the updated thumbnail and version.
+  		#
+  		# @raise [Kaltura::APIError] Raises default Kaltura errors plus 'ENTRY_ID_NOT_FOUND' if the entry doesn't exist and
+  	  #   'PERMISSION_DENIED_TO_UPDATE_ENTRY' if the user is does not own the live stream and isn't an administrator.
+  		##
   		def update_offline_thumbnail_jpeg(entry_id, file_data)
   			kparams = {}
   			client.add_param(kparams, 'entryId', entry_id)
@@ -83,6 +118,17 @@ module Kaltura
   			perform_request('liveStream','updateOfflineThumbnailJpeg',kparams,false)
   		end
 
+  		##
+  		# Updates the live stream entries offline thumbnail using a URL.
+  		#
+  		# @param [String] entry_id The live stream entry ID.
+  		# @param [File] url The URL to a JPEG file to use as the stream is offline backdrop.
+  		#
+  		# @return [Kaltura::LiveStreamEntry] The live stream entry with the updated thumbnail and version.
+  		#
+  		# @raise [Kaltura::APIError] Raises default Kaltura errors plus 'ENTRY_ID_NOT_FOUND' if the entry doesn't exist and
+  	  #   'PERMISSION_DENIED_TO_UPDATE_ENTRY' if the user is does not own the live stream and isn't an administrator.
+  		##
   		def update_offline_thumbnail_from_url(entry_id, url)
   			kparams = {}
   			client.add_param(kparams, 'entryId', entry_id)

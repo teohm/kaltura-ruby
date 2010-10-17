@@ -316,7 +316,7 @@ module Kaltura
       # @param [Kaltura::EntryContextDataParams] context_data_params The only field not inherited from Kaltura::ObjectBase
       #   is referrer, so I imagine that is what you should set.
       #
-      # @return [Kaltura::EntryConextDataResult] Returns some context info, including is the entry restricted by country or session.
+      # @return [Kaltura::EntryContextDataResult] Returns some context info, including is the entry restricted by country or session.
       #
       # @raise [Kaltura::APIError] Raises default Kaltura errors.
       ##

@@ -49,14 +49,27 @@ require 'kaltura/constants/widget'
 require 'kaltura/constants/yahoo_syndication_feed'
 
 module Kaltura
+  ##
+  # The constants module will soon be depreciated into an Enumeration module to
+  # be more in line with the C# API client's namespacing.
+  ##
   module Constants
-  
+    
+    ##
+    # @deprecated This class has no constants.
+    ##
 	  class FlavorParamsOrderBy
 	  end
 
+    ##
+    # @deprecated This class has no constants.
+    ##
 	  class FlavorParamsOutputOrderBy
 	  end
-	
+
+    ##
+    # @deprecated This class has no constants.
+    ##	
 	  class MediaInfoOrderBy
 	  end
 	    
