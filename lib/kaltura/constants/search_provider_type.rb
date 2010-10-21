@@ -1,22 +1,29 @@
 module Kaltura
   module Constants
+    ##
+    # The constants module will soon be depreciated into an Enumeration module to
+    # be more in line with the C# API client's namespacing.
+    #
+    # @see Kaltura::Search
+    # @see Kaltura::SearchResult
+    ##    
     class SearchProviderType
-  		FLICKR = 3
-  		YOUTUBE = 4
-  		MYSPACE = 7
-  		PHOTOBUCKET = 8
-  		JAMENDO = 9
-  		CCMIXTER = 10
-  		NYPL = 11
-  		CURRENT = 12
-  		MEDIA_COMMONS = 13
-  		KALTURA = 20
-  		KALTURA_USER_CLIPS = 21
-  		ARCHIVE_ORG = 22
-  		KALTURA_PARTNER = 23
-  		METACAFE = 24
-  		SEARCH_PROXY = 28
-  		PARTNER_SPECIFIC = 100
+  		FLICKR = 3 #Flickr search
+  		YOUTUBE = 4 #Youtube search
+  		MYSPACE = 7 #MySpace search
+  		PHOTOBUCKET = 8 #photobucket search
+  		JAMENDO = 9 #Jamendo search
+  		CCMIXTER = 10 #CCMixer search
+  		NYPL = 11 #NYPL search 
+  		CURRENT = 12 #Current search
+  		MEDIA_COMMONS = 13 #Media Commons search
+  		KALTURA = 20 #Kaltura search
+  		KALTURA_USER_CLIPS = 21 #Kaltura mix search
+  		ARCHIVE_ORG = 22 #Archive.org search
+  		KALTURA_PARTNER = 23 #Kaltura partner search
+  		METACAFE = 24 #Metacafe search
+  		SEARCH_PROXY = 28 #Search proxy
+  		PARTNER_SPECIFIC = 100 #partner specific search
   	end
   end
 end
