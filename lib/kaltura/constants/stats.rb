@@ -7,7 +7,7 @@ module Kaltura
     # be more in line with the C# API client's namespacing.
     #
     # @see Kaltura::StatsEvent
-    # @see Kaltura::KmcEvent
+    # @see Kaltura::StatsKmcEvent
     ##
     module Stats
       ##

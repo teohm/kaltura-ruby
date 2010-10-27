@@ -282,7 +282,9 @@ module Kaltura
 	    request.gsub("Kaltura","")
     end
 	  def self.request_is_response?(request)
-	    request == request.split("Response",0).to_s
+	    request_array = []
+	    request_array << request
+	    request_array == request.split("Response",0)
     end
 	end
 	
