@@ -190,7 +190,7 @@ module Kaltura
 			params["objectType"] = self.class.name.split('::').last 
 			instance_variables.each do |var|
 				value = instance_variable_get(var)
-				var = var.sub('@', '')
+				var = var.to_s.sub('@', '')
 				kvar = camelcase(var)
 				if (value != nil)
 					if (value.is_a? ObjectBase)
