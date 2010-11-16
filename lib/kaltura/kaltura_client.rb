@@ -63,6 +63,7 @@ module Kaltura
 		attr_accessor :moderation_count
 		attr_accessor :type
 		attr_accessor :created_at
+		attr_accessor :updated_at
 		attr_accessor :rank
 		attr_accessor :total_rank
 		attr_accessor :votes
@@ -95,6 +96,9 @@ module Kaltura
 		def created_at=(val)
 			@created_at = val.to_i
 		end
+		def updated_at=(val)
+		  @updated_at = val.to_i
+	  end
 		def rank=(val)
 			@rank = val.to_f
 		end
