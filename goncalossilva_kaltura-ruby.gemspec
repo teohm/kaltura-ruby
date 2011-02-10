@@ -4,7 +4,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{velir_kaltura-ruby}
+  s.name = %q{goncalossilva_kaltura-ruby}
   s.version = "0.4.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -139,9 +139,9 @@ Gem::Specification.new do |s|
      "test/test_2.rb",
      "test/test_error.rb",
      "test/test_helper.rb",
-     "velir_kaltura-ruby.gemspec"
+     "goncalossilva_kaltura-ruby.gemspec"
   ]
-  s.homepage = %q{http://github.com/Velir/kaltura-ruby}
+  s.homepage = %q{http://github.com/goncalossilva/kaltura-ruby}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
@@ -159,19 +159,19 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<activesupport>, [">= 2.3.8"])
-      s.add_runtime_dependency(%q<activeresource>, [">= 2.3.8"])
+      s.add_runtime_dependency(%q<activesupport>, ["~> 2.3.8"])
+      s.add_runtime_dependency(%q<activeresource>, ["~> 2.3.8"])
       s.add_runtime_dependency(%q<json>, [">= 0"])
       s.add_runtime_dependency(%q<rest-client>, [">= 1.5.1"])
     else
-      s.add_dependency(%q<activesupport>, [">= 2.3.8"])
-      s.add_dependency(%q<activeresource>, [">= 2.3.8"])
+      s.add_dependency(%q<activesupport>, ["~> 2.3.8"])
+      s.add_dependency(%q<activeresource>, ["~> 2.3.8"])
       s.add_dependency(%q<json>, [">= 0"])
       s.add_dependency(%q<rest-client>, [">= 1.5.1"])
     end
   else
-    s.add_dependency(%q<activesupport>, [">= 2.3.8"])
-    s.add_dependency(%q<activeresource>, [">= 2.3.8"])
+    s.add_dependency(%q<activesupport>, ["~> 2.3.8"])
+    s.add_dependency(%q<activeresource>, ["~> 2.3.8"])
     s.add_dependency(%q<json>, [">= 0"])
     s.add_dependency(%q<rest-client>, [">= 1.5.1"])
   end
