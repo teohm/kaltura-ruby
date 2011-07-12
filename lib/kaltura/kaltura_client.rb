@@ -70,7 +70,7 @@ module Kaltura
 		attr_accessor :partner_sort_value
 		attr_accessor :rank
     attr_accessor :reference_id
-    attr_accessor :replace_entry_id
+    attr_accessor :replaced_entry_id
     attr_accessor :replacement_status
     attr_accessor :replacing_entry_id
 		attr_accessor :search_text
