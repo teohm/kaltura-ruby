@@ -77,6 +77,7 @@ module Kaltura
 		attr_accessor :access_control_id
 		attr_accessor :start_date
 		attr_accessor :end_date
+    attr_accessor :reference_id
 
 		def partner_id=(val)
 			@partner_id = val.to_i
