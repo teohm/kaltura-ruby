@@ -49,35 +49,41 @@ module Kaltura
 	end
 
 	class BaseEntry < ObjectBase
-		attr_accessor :id
-		attr_accessor :name
-		attr_accessor :description
-		attr_accessor :partner_id
-		attr_accessor :user_id
-		attr_accessor :tags
+
+		attr_accessor :access_control_id
 		attr_accessor :admin_tags
 		attr_accessor :categories
 		attr_accessor :categories_ids
-		attr_accessor :status
-		attr_accessor :moderation_status
-		attr_accessor :moderation_count
-		attr_accessor :type
 		attr_accessor :created_at
-		attr_accessor :updated_at
-		attr_accessor :rank
-		attr_accessor :total_rank
-		attr_accessor :votes
-		attr_accessor :group_id
-		attr_accessor :partner_data
+		attr_accessor :conversion_profile_id
+		attr_accessor :description
 		attr_accessor :download_url
-		attr_accessor :search_text
-		attr_accessor :license_type
-		attr_accessor :version
-		attr_accessor :thumbnail_url
-		attr_accessor :access_control_id
-		attr_accessor :start_date
 		attr_accessor :end_date
+		attr_accessor :group_id
+		attr_accessor :id
+		attr_accessor :license_type
+		attr_accessor :moderation_count
+		attr_accessor :moderation_status
+		attr_accessor :name
+		attr_accessor :partner_data
+		attr_accessor :partner_id
+		attr_accessor :partner_sort_value
+		attr_accessor :rank
     attr_accessor :reference_id
+    attr_accessor :replace_entry_id
+    attr_accessor :replacement_status
+    attr_accessor :replacing_entry_id
+		attr_accessor :search_text
+		attr_accessor :start_date
+		attr_accessor :status
+		attr_accessor :tags
+		attr_accessor :thumbnail_url
+		attr_accessor :total_rank
+		attr_accessor :type
+		attr_accessor :updated_at
+		attr_accessor :user_id
+		attr_accessor :version
+		attr_accessor :votes
 
 		def partner_id=(val)
 			@partner_id = val.to_i
