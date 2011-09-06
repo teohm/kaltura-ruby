@@ -73,6 +73,7 @@ module Kaltura
     attr_accessor :replaced_entry_id
     attr_accessor :replacement_status
     attr_accessor :replacing_entry_id
+    attr_accessor :root_entry_id
 		attr_accessor :search_text
 		attr_accessor :start_date
 		attr_accessor :status
@@ -84,7 +85,7 @@ module Kaltura
 		attr_accessor :user_id
 		attr_accessor :version
 		attr_accessor :votes
-
+  
 		def partner_id=(val)
 			@partner_id = val.to_i
 		end
