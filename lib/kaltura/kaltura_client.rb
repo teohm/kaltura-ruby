@@ -65,6 +65,7 @@ module Kaltura
 		attr_accessor :moderation_count
 		attr_accessor :moderation_status
 		attr_accessor :name
+    attr_accessor :operation_attributes
 		attr_accessor :partner_data
 		attr_accessor :partner_id
 		attr_accessor :partner_sort_value
